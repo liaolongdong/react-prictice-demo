@@ -7,6 +7,7 @@ import Title from './Title';
 import LikeButton from './LikeButton';
 import Header from './Header';
 import Clock from './Clock';
+import ThemeIndex from './ThemeIndex';
 
 class App extends Component {
   constructor() {
@@ -52,6 +53,10 @@ class App extends Component {
           <button onClick={this.handleSHowOrHideClock.bind(this)}>
             {this.state.isShowClock?"隐藏":"显示"}时钟
           </button>
+        </div>
+        <hr/>
+        <div>
+          <ThemeIndex/>
         </div>
       </div>
     );

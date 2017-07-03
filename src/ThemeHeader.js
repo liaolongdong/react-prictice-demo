@@ -1,29 +1,34 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 
 class ThemeHeader extends Component {
-	static contextTypes = {
-		store: PropTypes.object
+	static propTypes = {
+		themeColor: PropTypes.string
 	}
 
-	constructor(){
-		super();
-		this.state = {
-			themeColor: ''
-		}
-	}
+	// static contextTypes = {
+	// 	store: PropTypes.object
+	// }
 
-	_updateThemeColor() {
-		const {store} = this.context;
-		const state = store.getState();
-		this.setState({themeColor: state.themeColor});
-	}
+	// constructor(){
+	// 	super();
+	// 	this.state = {
+	// 		themeColor: ''
+	// 	}
+	// }
 
-	componentWillMount(){
-		const {store} = this.context;
-		this._updateThemeColor();
-		store.subscribe(() => this._updateThemeColor());
-	}
+	// _updateThemeColor() {
+	// 	const {store} = this.context;
+	// 	const state = store.getState();
+	// 	this.setState({themeColor: state.themeColor});
+	// }
+
+	// componentWillMount(){
+	// 	const {store} = this.context;
+	// 	this._updateThemeColor();
+	// 	store.subscribe(() => this._updateThemeColor());
+	// }
 
 	render() {
 		return (
@@ -31,5 +36,12 @@ class ThemeHeader extends Component {
 		)
 	}
 }
+
+const mapStateToProps = (state) => {
+	return {
+		themeColor: state.themeColor
+	}
+}
+ThemeHeader = connect(mapStateToProps)(ThemeHeader);
 
 export default ThemeHeader;

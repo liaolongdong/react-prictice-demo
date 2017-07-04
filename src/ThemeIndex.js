@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import {Provider} from './react-redux';
 import ThemeHeader from './ThemeHeader';
 import ThemeContent from './ThemeContent';
 
@@ -31,20 +32,20 @@ const themeReducer = (state, action) => {
 const store = createStore(themeReducer);
 
 class ThemeIndex extends Component {
-	static childContextTypes = {
-		store: PropTypes.object
-	}
+	// static childContextTypes = {
+	// 	store: PropTypes.object
+	// }
 
-	getChildContext(){
-		return {store}
-	}
+	// getChildContext(){
+	// 	return {store}
+	// }
 	
 	render() {
 		return (
-			<div>
+			<Provider store={store}>
 				<ThemeHeader/>
 				<ThemeContent/>
-			</div>
+			</Provider>
 		)
 	}
 }

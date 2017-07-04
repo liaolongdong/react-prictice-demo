@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import connect from 'react-redux';
+import {connect} from './react-redux';
 
 class ThemeSwitch extends Component {
 	// static contextTypes = {
@@ -49,8 +49,8 @@ class ThemeSwitch extends Component {
 	render() {
 		return (
 			<div>
-				<button style={{'color': this.state.themeColor}} onClick={this.handleSwitchColor.bind(this, 'green')}>green</button>
-				<button style={{'color': this.state.themeColor}} onClick={this.handleSwitchColor.bind(this, 'blue')}>blue</button>
+				<button style={{'color': this.props.themeColor}} onClick={this.handleSwitchColor.bind(this, 'green')}>green</button>
+				<button style={{'color': this.props.themeColor}} onClick={this.handleSwitchColor.bind(this, 'blue')}>blue</button>
 			</div>
 		)
 	}
